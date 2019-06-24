@@ -1,1 +1,16 @@
-
+apiVersion: 1.0.0
+metadata:
+  name: minimal-workspace
+projects:
+  - name: testProject
+    source:
+      type: git
+      location: 'https://github.com/tomevision/che7.git'
+components:
+    - alias: mysql
+      type: kubernetes
+      reference: petclinic.yaml
+      selector:
+        app.kubernetes.io/name: mysql
+        app.kubernetes.io/component: database
+        app.kubernetes.io/part-of: petclinic
